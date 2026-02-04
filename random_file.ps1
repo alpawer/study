@@ -9,7 +9,8 @@ Get-ChildItem -Path $FolderPath -File | Remove-Item
 Write-Host "Folder is clear" -ForegroundColor Cyan
 Write-Host ""
 
-$RandomCount = Get-Random -Minimum 1 -Maximum 7
+$MagicNumber = 12
+$RandomCount = Get-Random -Minimum 1 -Maximum ($MagicNumber + 1)
 
 Write-Host "Generating $RandomCount files" -ForegroundColor Yellow
 Write-Host ""
@@ -26,11 +27,11 @@ Write-Host ""
 $FileCount = (Get-ChildItem -Path $FolderPath -File | Measure-Object).Count
 
 Write-Host "We found $FileCount files" -ForegroundColor Cyan
-
-if ($FileCount -eq 6) {
+if ($FileCount -eq $MagicNumber) {
     Write-Host "----------------------" -ForegroundColor Magenta
-    Write-Host "Ура Київ за шість днів" -ForegroundColor Magenta
+    Write-Host "Ура Київ за $MagicNumber днів" -ForegroundColor Magenta
     Write-Host "----------------------" -ForegroundColor Magenta
-} else {
-    Write-Host "Amount of files is not equal to 6. I am sorry" -ForegroundColor Red
+}
+else {
+    Write-Host "Amount of files is not equal to $MagicNumber. I am sorry" -ForegroundColor Red
 }
