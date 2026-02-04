@@ -6,9 +6,10 @@ ls "./TestFiles" | where { ($in.name | path type) == "file" } | each { rm $in.na
 print $"(ansi cyan) Folder is clear\n" 
 
 # генеруємо випадкову кількість файлів
-print $"(ansi yellow) Generating (random int 1..5) files\n"
+let magic_number = 12
+print $"(ansi yellow) Generating (random int 1..$magic_number) files\n"
 
-for i in 1..(random int 1..5) {
+for i in 1..(random int 1..$magic_number) {
     $"Content number ($i)" | save -f ("./TestFiles" | path join $"file_($i).txt")
     print $"(ansi green)   made: file_($i).txt"
 }
@@ -23,11 +24,10 @@ let file_count = (
 )
 
 print $"(ansi cyan) We found ($file_count) files"
-
-if $file_count == 3 {
+if $file_count == $magic_number {
     print $"(ansi magenta) -------------------"
-    print $"(ansi magenta) Ура Київ за три дні"
+    print $"(ansi magenta) Ура Київ за ($magic_number) дні"
     print $"(ansi magenta) -------------------"
 } else {
-    print $"(ansi red) Amount of files is not equal to 3. I am sorry"
+    print $"(ansi red) Amount of files is not equal to ($magic_number). I am sorry"
 }
