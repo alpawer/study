@@ -1,6 +1,6 @@
 import os
 import random
-from colorama import Fore, Style, init
+from colorama import Fore, init
 
 # Ініціалізація colorama (для Windows)
 init(autoreset=True)
