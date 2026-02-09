@@ -35,7 +35,7 @@
     <button onclick="setCustom()">Вибрати свій колір</button>
 
     <script>
-        // при завантаженні сторінки підтягуємо поточний колір із сервера
+        // Підтягнути колір при завантаженні сторінки
         window.addEventListener('load', () => {
             fetch('/color')
                 .then(r => r.text())
@@ -53,6 +53,7 @@
         function setColor(color) {
             fetch('/color', {
                 method: "POST",
+                headers: { "Content-Type": "text/plain" },
                 body: color
             }).then(() => {
                 document.body.style.backgroundColor = color;
