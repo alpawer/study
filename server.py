@@ -1,6 +1,8 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import random
 import argparse
+import os
+import sys
 
 class MyHandler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -35,9 +37,16 @@ class MyHandler(BaseHTTPRequestHandler):
 
 # --- Вибір порту ---
 parser = argparse.ArgumentParser()
-parser.add_argument("--port", type=int, default=7001, help="Port to run server on")
+parser.add_argument("--port", type=int, default=7001)
 args = parser.parse_args()
 
-server = HTTPServer(("127.0.0.1", args.port), MyHandler)
+# --- Запис PID у файл ---
+pid = os.getpid()
+with open("server_on", "w") as f:
+    f.write(str(pid))
+
+print(f"Server PID: {pid}")
 print(f"Server running at http://127.0.0.1:{args.port}")
+
+server = HTTPServer(("127.0.0.1", args.port), MyHandler)
 server.serve_forever()
