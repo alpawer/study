@@ -3,19 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <title>Женя</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
+
     <div class="title">Женя гарна українка, танцює гопака.</div>
 
     <button onclick="showMessage()">Слава Україні</button>
 
+    <h2>Змінити фон</h2>
+
+    <div class="color-grid">
+        <div class="color-btn" style="background:#0033cc" onclick="setColor('#0033cc')"></div>
+        <div class="color-btn" style="background:#000000" onclick="setColor('#000000')"></div>
+        <div class="color-btn" style="background:#ffffff" onclick="setColor('#ffffff')"></div>
+        <div class="color-btn" style="background:#ff0000" onclick="setColor('#ff0000')"></div>
+        <div class="color-btn" style="background:#00ff00" onclick="setColor('#00ff00')"></div>
+        <div class="color-btn" style="background:#0000ff" onclick="setColor('#0000ff')"></div>
+        <div class="color-btn" style="background:#ffff00" onclick="setColor('#ffff00')"></div>
+        <div class="color-btn" style="background:#ff00ff" onclick="setColor('#ff00ff')"></div>
+        <div class="color-btn" style="background:#00ffff" onclick="setColor('#00ffff')"></div>
+        <div class="color-btn" style="background:#ffa500" onclick="setColor('#ffa500')"></div>
+        <div class="color-btn" style="background:#800080" onclick="setColor('#800080')"></div>
+        <div class="color-btn" style="background:#008000" onclick="setColor('#008000')"></div>
+    </div>
+
+    <br>
+
+    <input type="color" id="customColor">
+    <button onclick="setCustom()">Вибрати свій колір</button>
+
     <script>
+        // при завантаженні сторінки підтягуємо поточний колір із сервера
+        window.addEventListener('load', () => {
+            fetch('/color')
+                .then(r => r.text())
+                .then(color => {
+                    document.body.style.backgroundColor = color;
+                });
+        });
+
         function showMessage() {
             fetch('/random')
-                .then(response => response.text())
-                .then(text => alert(text));
+                .then(r => r.text())
+                .then(t => alert(t));
+        }
+
+        function setColor(color) {
+            fetch('/color', {
+                method: "POST",
+                body: color
+            }).then(() => {
+                document.body.style.backgroundColor = color;
+            });
+        }
+
+        function setCustom() {
+            const color = document.getElementById("customColor").value;
+            setColor(color);
         }
     </script>
+
 </body>
 </html>
