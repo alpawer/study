@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Женя</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="title">Женя гарна українка, танцює гопака.</div>
+
+    <button onclick="showMessage()">Слава Україні</button>
+
+    <script>
+        function showMessage() {
+            fetch('/random')
+                .then(response => response.text())
+                .then(text => alert(text));
+        }
+    </script>
+</body>
+</html>
