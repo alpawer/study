@@ -1,0 +1,111 @@
+img.logoImg {
+    width: 150px;
+}
+
+body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    max-width: 700px;
+    padding: 40px 30px 30px;
+    background: #111;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.logo span {
+    background: #f90;
+    color: #000;
+    padding: 0 8px;
+    border-radius: 3px;
+}
+
+.headline {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 25px;
+}
+
+.highlight {
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.highlight a {
+    color: #f90;
+    text-decoration: none;
+}
+
+.highlight a:hover {
+    text-decoration: underline;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    flex: 1 1 200px;
+    padding: 12px 18px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-enter {
+    background: #f90;
+    color: #000;
+}
+
+.btn-exit {
+    background: #444;
+    color: #fff;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.note {
+    font-size: 11px;
+    color: #777;
+}
+
+.note a {
+    color: #f90;
+    text-decoration: none;
+}
+
+.note a:hover {
+    text-decoration: underline;
+}

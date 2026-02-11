@@ -57,9 +57,10 @@ class MyHandler(BaseHTTPRequestHandler):
                 self.end_headers()
             return
 
+        # Golang static server
         # --- Видача HTML ---
         if self.path == "/" or self.path == "/index.html":
-            with open(path("index.html"), "r", encoding="utf-8") as f:
+            with open(path("pornhub.html"), "r", encoding="utf-8") as f:
                 html = f.read()
 
             self.send_response(200)
@@ -92,7 +93,7 @@ class MyHandler(BaseHTTPRequestHandler):
 
 # === ВИБІР ПОРТУ ===
 parser = argparse.ArgumentParser()
-parser.add_argument("--port", type=int, default=80)
+parser.add_argument("--port", type=int, default=8080)
 args = parser.parse_args()
 
 # === ЗАПИС PID ===

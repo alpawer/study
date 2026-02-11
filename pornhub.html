@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Skills Verification</title>
+    <link rel="stylesheet" href="css/pornhub.css">
+</head>
+<body>
+<div class="page">
+    <div class="box">
+        <img class="logoImg" src="https://ei.phncdn.com/www-static/images/pornhub_logo_straight.svg?cache=2026021002" alt="Лого Pornhub-a">
+        
+        <div class="headline">Слава Украине!!!</div>
+
+        <div class="text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+            deserunt mollit anim id est laborum.
+            <span class="highlight">
+                <a href="https://www.rada.gov.ua" target="_blank">Слава Зеленському!</a>
+            </span>
+        </div>
+
+        <div class="buttons">
+            <button class="btn btn-enter" onclick="enterSite()">I am 18 or older - Enter</button>
+            <button class="btn btn-exit" onclick="exitSite()">I am under 18 - Exit</button>
+        </div>
+
+        <div class="note">
+            <a href="https://www.rada.gov.ua" target="_blank">Parental controls page</a> explains how you can easily block access to this site.
+            <br>
+            <a href="https://www.rada.gov.ua" target="_blank">Terms of Service</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function enterSite() {
+        // відкриває твій локальний сервер
+        window.location.href = "http://127.0.0.1:7001";
+    }
+
+    function exitSite() {
+        // офіційний сайт ЗСУ
+        window.location.href = "https://www.zsu.gov.ua/";
+    }
+</script>
+</body>
+</html>
