@@ -5,7 +5,6 @@
     <title>Женя</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
     <div class="title">Женя гарна українка, танцює гопака.</div>
@@ -35,7 +34,6 @@
     <button onclick="setCustom()">Вибрати свій колір</button>
 
     <script>
-        // Підтягнути колір при завантаженні сторінки
         window.addEventListener('load', () => {
             fetch('/color')
                 .then(r => r.text())
